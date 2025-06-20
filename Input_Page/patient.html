@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Sidebar / Dashboard & garis -->
+    <div class="sidebar-panel">
+        <div class="panel-content">
+            <img src="gambar/logo.png" alt="Logo" class="logo-img" />
+
+            <div class="menu-item">
+                <img src="gambar/pasien.png" alt="Patient" class="menu-icon">
+                <a href="patient.html" class="menu-link">PATIENT</a>
+            </div>
+
+            <div class="menu-item">
+                <img src="gambar/pencil.png" alt="Pencil" class="menu-icon">
+                <a href="input.html" class="menu-link">INPUT</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="dl"></div>
+        <div class="dl2"></div>
+        <div class="user">
+            <img src="gambar/user.png" alt="User" class="user-img" />
+        </div>
+
+        <div id="user-name" class="user-text">Please Choose Room</div>
+
+        <!-- Room Image -->
+        <img class="room-img" src="gambar/room.png" alt="room" />
+
+        <!-- Room Dropdown -->
+        <div class="dropdown">
+            <div class="select">
+                <span class="selected">ROOM</span>
+                <div class="caret"></div>
+            </div>
+            <ul class="menu">
+                <li>301</li>
+                <li>302</li>
+                <li>303</li>
+            </ul>
+        </div>
+        
+        <!-- Data History Button -->
+        <div class="btn-wrapper">
+            <a href="/data_history.html" class="btn">DATA HISTORY</a>
+        </div>
+
+        <div class="status-container" id="statusBox">
+            <p class="status-title">STATUS</p>
+            <span class="status-text" id="statusText">INDICATOR</span>
+            <div class="status-indicator" id="statusIndicator"></div>
+        </div>        
+        
+        <div class="header_pi">
+            <p>PATIENT'S INFORMATION</p>
+        </div>
+
+        <!-- Patient Information Details -->
+        <div class="info_pi">
+            <div class="info-row">
+                <div class="label">Name</div>
+                <div class="separator">:</div>
+                <div class="value" id="patient-name"></div>
+            </div>
+            <div class="info-row">
+                <div class="label">Birth Place</div>
+                <div class="separator">:</div>
+                <div class="value" id="birth-place"></div>
+            </div>
+            <div class="info-row">
+                <div class="label">Birth Date</div>
+                <div class="separator">:</div>
+                <div class="value" id="birth-date"></div>
+            </div>
+            <div class="info-row">
+                <div class="label">Blood Type</div>
+                <div class="separator">:</div>
+                <div class="value" id="blood-type"></div>
+            </div>
+            <div class="info-row">
+                <div class="label">Gender</div>
+                <div class="separator">:</div>
+                <div class="value" id="gender"></div>
+            </div>
+            <div class="info-row">
+                <div class="label">Age</div>
+                <div class="separator">:</div>
+                <div class="value" id="age"></div>
+            </div>
+            <div class="info-row">
+                <div class="label">Phone</div>
+                <div class="separator">:</div>
+                <div class="value" id="phone"></div>
+            </div>
+            <div class="info-row">
+                <div class="label">Address</div>
+                <div class="separator">:</div>
+                <div class="value" id="address"></div>
+            </div>
+        </div>
+
+        <!-- SPO2 & History Chart -->
+        <div class="spo2">
+            <p class="spo2-text">Blood Oxygen</p>
+            <p class="spo2-aja">(SpO<sub>2</sub>)</p>
+            <p class="spo2-value"></p>
+            <p class="waktu">Last Data :</p>
+            <p class="waktu-value"></p>
+            <p class="wib">WIB</p>
+        </div>
+
+        <div class="history_chart">
+            <canvas id="historyChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Alarm Section & Donut Chart -->
+    <div class="alarm-panel">
+        <div class="alarm">
+            <p>RECENT ALARM</p>
+        </div>
+
+        <div class="donut-container">
+            <div class="donut" id="donutChart">
+                <div class="donut-hole"></div>
+                <img src="gambar/alarm.png" alt="alarm" class="alarm-img" />
+            </div>
+        </div>
+
+        <div class="semuabox">
+            <div class="box">
+                <div class="indikator"></div>
+                <p><span>Title</span> Deskripsi Tambahan</p>
+            </div>
+            <div class="box">
+                <div class="indikator"></div>
+                <p><span>Title</span> Deskripsi Tambahan</p>
+            </div>
+            <div class="box">
+                <div class="indikator"></div>
+                <p><span>Title</span> Deskripsi Tambahan</p>
+            </div>
+            <div class="box">
+                <div class="indikator"></div>
+                <p><span>Title</span> Deskripsi Tambahan</p>
+            </div>
+            <div class="box">
+                <div class="indikator"></div>
+                <p><span>Title</span> Deskripsi Tambahan</p>
+            </div>
+            <div class="box">
+                <div class="indikator"></div>
+                <p><span>Title</span> Deskripsi Tambahan</p>
+            </div>
+            <div class="box">
+                <div class="indikator"></div>
+                <p><span>Title</span> Deskripsi Tambahan</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="abc.js"></script>
+    <script src="alarm.js"></script>
+</body>
+
+</html>
