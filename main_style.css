@@ -103,6 +103,6 @@ img {
     left: 50%;
     transform: translate(-30%, -50%);
     font-size: 100px;
-    font-weight: bold; /* Tebal */
-    color: #000; /* Warna teks */
+    font-weight: bold; 
+    color: black; 
 }
