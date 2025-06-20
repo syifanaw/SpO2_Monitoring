@@ -1,0 +1,707 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    padding: 5px; 
+    width: calc(100vw - 10px);
+    height: calc(100vh - 10px);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 100vh;
+    gap: 5px; 
+}
+
+.sidebar-panel, .main-content, .alarm-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 20px); 
+    width: calc(100% - 20px);  
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    html, body {
+        grid-template-columns: 30% 70%; /* Sidebar lebih besar */
+        grid-template-rows: auto auto; /* Gunakan tinggi otomatis */
+        height: auto;
+    }
+}
+
+.main-content {
+    position: relative; /* Parent harus relative */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Pastikan mengikuti tinggi parent */
+}
+
+.dl, .dl2 {
+    position: absolute;
+    top: 0;
+    width: 2px;
+    height: 100%; /* Mengikuti tinggi .main-content */
+    background: repeating-linear-gradient(to bottom, #000, #000 5px, transparent 5px, transparent 15px);
+}
+
+.dl {
+    left: 0;
+}
+
+.dl2 {
+    right: 0;
+}
+
+/* -------------------sidebar-panel------------------------- */
+.panel-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: #d9d9d9;
+    padding: 20px;
+    border-radius: 10px;
+    width: 85%;
+    height: 95%;
+    position: relative; 
+}
+
+.logo-img {
+    width: 230px; 
+    height: auto;
+    margin-top: 50px; 
+    align-self: center;
+    margin-bottom: 80px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    margin-top: 30px; 
+}
+
+.menu-icon {
+    width: 40px;
+    height: auto;
+}
+
+.menu-link {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+}
+
+/* ----------------------main-content---------------------- */
+.user {
+    position: absolute;
+    left: 3%;
+    top: 3%;
+    width: 24%;
+    height: 24%; /* Pastikan tingginya penuh */
+    border-radius: 15px;
+    background-color: #d9d9d9;
+    overflow: hidden;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    gap: 10px; 
+}
+
+.user-img {
+    width: 150px;
+    height: auto;
+}
+
+
+.user-text {
+    position: absolute; 
+    top: 5%;
+    left: 28%;
+    font-size: 38px;
+    color: black;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.user-text.hidden {
+    opacity: 0; 
+}
+
+#user-name {
+    transition: opacity 0.4s ease;
+    opacity: 1;
+}
+
+.room-img {
+    position: absolute;
+    display: block;
+    top: 12%;
+    left: 27.5%; 
+    width: 70px;
+    height: auto;
+}
+
+/* Dropdown */
+.dropdown {
+    position: absolute;
+    top: 13%;
+    left: 34.2%;
+}
+
+.select {
+    position: relative;
+    width: 9vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+    border: 1px solid #2a2f2b;
+    background-color: #d9d9d9;
+    color: black;
+}
+
+.select:hover {
+    background: #99a8c4;
+}
+
+.caret {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid black;
+    transition: 0.3s;
+}
+
+.menu {
+    list-style: none;
+    padding: 0.2em 0.5em;
+    background: #d9d9d9;
+    border: 1px solid #363a43;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    color: black;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    display: none;
+    transition: 0.2s;
+    z-index: 1;
+}
+
+.menu li {
+    padding: 0.7em 0.5em;
+    margin: 0.3em 0;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.menu li:hover {
+    background: #99a8c4;
+}
+
+.menu-open {
+    display: block;
+    opacity: 1;
+}
+
+/* Data History Button */
+.btn-wrapper {
+    top: 21.3% !important;
+    left: 28% !important;
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    width: 12.5vw !important; 
+    height: 2.8vw !important; 
+    background-color: #d9d9d9;
+    color: black;
+    text-decoration: none;
+    text-align: center !important;
+    font-size: 16px;
+    border-radius: 10px !important;
+    border: 1px solid #2a2f2b !important;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background: #99a8c4;
+}
+
+
+/* Status Box */
+.status-container {
+    position: absolute;
+    top: 12% !important;
+    left: 52.5% !important;
+    width: 45% !important;
+    height: 15% !important;
+    background-color: #d9d9d9;
+    color: black;
+    border-radius: 10px;
+    display: flex; /* Biar rapi dalam satu baris */
+    align-items: center; /* Pusatkan vertikal */
+    justify-content: space-between; /* Jarak rata */
+    padding: 0 5%;
+    box-sizing: border-box;
+}
+
+/* Status Title */
+.status-title {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: left;
+    flex: 1;
+}
+
+/* Status Text */
+.status-text {
+    font-size: 20px;
+    text-align: center;
+    flex: 1;
+    margin-left: -90px; /* Biarkan sedikit ke kiri biar proporsional */
+    transition: color 0.3s ease-in-out;
+}
+
+/* Status Indicator */
+.status-indicator {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: gray;
+    flex-shrink: 0; /* Supaya lingkaran tidak berubah ukuran */
+}
+
+/* Pastikan posisi tidak berubah setelah menambah class */
+.safe,
+.warning,
+.danger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* SAFE */
+.safe {
+    background-color: #DFF6DD;
+    border: 2px solid green;
+}
+
+.safe .status-text { 
+    color: #2E7D32;
+}
+
+.safe .status-indicator {
+    background-color: green;
+}
+
+/* WARNING */
+.warning {
+    background-color: #FFF4E5;
+    border: 2px solid orange;
+}
+
+.warning .status-text { 
+    color: #E65100;
+}
+
+.warning .status-indicator {
+    background-color: orange;
+}
+
+/* DANGER */
+.danger {
+    background-color: #FFE5E5;
+    border: 2px solid red;
+}
+
+.danger .status-text { 
+    color: #B71C1C;
+    animation: glow 1.5s infinite alternate;
+}
+
+.danger .status-indicator {
+    background-color: red;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 5px red; }
+    to { box-shadow: 0 0 15px red; }
+}
+
+
+/* Patient Information */
+.header_pi {
+    left: 3% !important;
+    top: 30% !important;
+    width: 47% !important;
+    padding: 10px;
+    background-color: #d9d9d9;
+    color: black;
+    border-radius: 10px !important;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.header_pi p {
+    font-size: 20px;
+}
+
+.info_pi {
+    position: absolute;
+    left: 3% !important;
+    top: 36% !important;
+    width: 47% !important;
+    height: 25% !important;
+    padding: 10px;
+    background-color: #d9d9d9;
+    color: black;
+    border-radius: 10px !important;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.info-row {
+    display: grid;
+    grid-template-columns: 10px 10px auto;
+    column-gap: 10px;
+    margin-bottom: 10px;
+}
+
+.label {
+    font-weight: bold;
+    text-align: left;
+}
+
+.separator {
+    text-align: center;
+}
+
+.value {
+    text-align: left;
+}
+
+/* Header Patient Information */
+.header_pi {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 225px;
+    left: 0px;
+    width: 465px;
+    height: 30px;
+    padding: 20px 80px;
+    background-color: #d9d9d9;
+    color: black;
+    border-radius: 15px;
+}
+
+.header_pi p {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0;
+}
+
+/* Info Patient */
+.info_pi {
+    position: absolute;
+    top: 270px;
+    left: 0px;
+    width: 465px;
+    height: 250px;
+    /* Atur tinggi secara eksplisit */
+    padding: 20px;
+    background-color: #d9d9d9;
+    color: black;
+    border-radius: 15px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.info-row {
+    display: grid;
+    grid-template-columns: 90px 10px auto;
+    column-gap: 10px;
+    margin-bottom: 5px;
+}
+
+.label {
+    font-weight: bold;
+    text-align: left;
+}
+
+.separator {
+    text-align: center;
+}
+
+.value {
+    text-align: left;
+}
+
+/* ----------- BOX SPO2 -----------*/
+.spo2 {
+    position: absolute;
+    top: 30%;
+    left: 52.5%;
+    width: 45%;
+    height: 30.9%;
+    background-color: #d9d9d9;
+    color: black;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.spo2-text {
+    position: absolute;
+    top: 10%;
+    left: 35%;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+
+.spo2-aja {
+    position: absolute;
+    top: 20%;
+    left: 42%;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+
+.spo2-value {
+    position: absolute;
+    top: 35%;
+    left: 36%;
+    font-size: 80px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
+.percent {
+    font-size: 40px;
+    position: relative;
+    top: -0.3em;
+    left: 0.2em;
+}
+
+.waktu {
+    position: absolute;
+    top: 85%;
+    left: 5%;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.waktu-value {
+    position: absolute;
+    top: 85%;
+    left:27%;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.wib {
+    position: absolute;
+    top: 85%;
+    left: 45%;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+/* History Chart */
+.history_chart {
+    position: absolute;
+    top: 63.5%;
+    width: 95%; /* 90% dari parent */
+    height: 32%;
+    max-width: 1100px; /* Bisa dikontrol */
+    padding: 20px;
+    background-color: #d9d9d9;
+    color: black;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    left: 50%;
+    transform: translateX(-50%); /* Biar tetap di tengah */
+}
+
+#historyChart {
+    width: 100%;
+    height: 100%;
+}
+
+/* Data History Button */
+.btn-wrapper {
+    position: absolute;
+    top: 21.5% !important;
+    left: 28.2% !important;
+    margin: 0;
+}
+
+/* Data History Button */
+.btn {
+    display: inline-block;
+    width: 12.6vw; 
+    height: 2.6vw; 
+    padding: 14px 20px; 
+    background-color: #d9d9d9;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 15px;
+    border: 1px solid #2a2f2b;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background: #99a8c4;
+}
+
+/* --------------------alarm-panel------------------------ */
+.alarm {
+    width: 80%;
+    height: 6%;
+    background-color: #d9d9d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 50px; 
+}
+
+/* Container Donut Chart */
+.donut-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 50px;
+}
+
+/* Donut Chart */
+.donut {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: conic-gradient(from 0deg, #e74f4f 0% 50%, #fc921f 50% 100%);
+}
+
+/* Lubang tengah */
+.donut-hole {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    background-color: white;
+}
+
+/* Gambar Alarm */
+.alarm-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: auto;
+    z-index: 1;
+}
+
+/* Container untuk daftar alarm */
+.semuabox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    gap: 15px;
+    flex-wrap: wrap; /* Mencegah elemen keluar */
+}
+
+/* Box Alarm */
+.box {
+    display: flex;
+    align-items: center;
+    background: lightgray;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    height: 60px;
+}
+
+/* Indikator di dalam Box */
+.indikator {
+    width: 10px;
+    height: 30px;
+    background: orange;
+    margin-right: 10px;
+}
+
+/* Teks dalam Box */
+.box p {
+    font-size: 16px;
+    text-align: left;
+}
+
+.box p span {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 2px;
+}
+
+/* Jika tidak ada data */
+.no-data {
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
+/* ========== RESPONSIVE BREAKPOINT ========== */
+@media (max-width: 1024px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+}
