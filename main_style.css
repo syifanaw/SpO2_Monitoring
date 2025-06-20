@@ -96,3 +96,13 @@ img {
     font-weight: bold;
     color: black;
 }
+
+.welcome {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-30%, -50%); /* Geser untuk posisikan ke kanan tengah */
+    font-size: 48px; /* Besar */
+    font-weight: bold; /* Tebal */
+    color: #000; /* Warna teks */
+}
