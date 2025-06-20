@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Patient Dashboard</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Input Page</title>
+    <link rel="stylesheet" href="input_
+        style.css" />
 </head>
 
 <body>
@@ -27,152 +28,142 @@
     </div>
 
     <div class="main-content">
+        <p class = "judul">INPUT PATIENT'S INFORMATION</p>
         <div class="dl"></div>
-        <div class="dl2"></div>
-        <div class="user">
-            <img src="gambar/user.png" alt="User" class="user-img" />
+        <div class="abc">
+            <label for="room-select">Select Room</label>
+            <select id="room-select">
+                <option value="" disabled selected>Select a room</option>
+                <option value="301">Room 301</option>
+                <option value="302">Room 302</option>
+                <option value="303">Room 303</option>
+            </select>
+            <!-- <div class="data-section" id="data-section">
+                        <h3>Patient List for <span id="room-number"></span></h3>
+                        <ul id="patient-list"></ul>
+                    </div> -->
         </div>
 
-        <div id="user-name" class="user-text">Please Choose Room</div>
-
-        <!-- Room Image -->
-        <img class="room-img" src="gambar/room.png" alt="room" />
-
-        <!-- Room Dropdown -->
-        <div class="dropdown">
-            <div class="select">
-                <span class="selected">ROOM</span>
-                <div class="caret"></div>
-            </div>
-            <ul class="menu">
-                <li>301</li>
-                <li>302</li>
-                <li>303</li>
-            </ul>
-        </div>
-        
-        <!-- Data History Button -->
-        <div class="btn-wrapper">
-            <a href="/data_history.html" class="btn">DATA HISTORY</a>
+        <div class="name">
+            <label for="patient-name">Name</label>
+            <input type="text" id="patient-name" required>
         </div>
 
-        <div class="status-container" id="statusBox">
-            <p class="status-title">STATUS</p>
-            <span class="status-text" id="statusText">INDICATOR</span>
-            <div class="status-indicator" id="statusIndicator"></div>
-        </div>        
-        
-        <div class="header_pi">
-            <p>PATIENT'S INFORMATION</p>
+        <div class="place">
+            <label for="birth-place">Birth Place</label>
+            <input type="text" id="birth-place" required>
         </div>
 
-        <!-- Patient Information Details -->
-        <div class="info_pi">
-            <div class="info-row">
-                <div class="label">Name</div>
-                <div class="separator">:</div>
-                <div class="value" id="patient-name"></div>
-            </div>
-            <div class="info-row">
-                <div class="label">Birth Place</div>
-                <div class="separator">:</div>
-                <div class="value" id="birth-place"></div>
-            </div>
-            <div class="info-row">
-                <div class="label">Birth Date</div>
-                <div class="separator">:</div>
-                <div class="value" id="birth-date"></div>
-            </div>
-            <div class="info-row">
-                <div class="label">Blood Type</div>
-                <div class="separator">:</div>
-                <div class="value" id="blood-type"></div>
-            </div>
-            <div class="info-row">
-                <div class="label">Gender</div>
-                <div class="separator">:</div>
-                <div class="value" id="gender"></div>
-            </div>
-            <div class="info-row">
-                <div class="label">Age</div>
-                <div class="separator">:</div>
-                <div class="value" id="age"></div>
-            </div>
-            <div class="info-row">
-                <div class="label">Phone</div>
-                <div class="separator">:</div>
-                <div class="value" id="phone"></div>
-            </div>
-            <div class="info-row">
-                <div class="label">Address</div>
-                <div class="separator">:</div>
-                <div class="value" id="address"></div>
+        <div class="date">
+            <label for="birth-date">Birth Date</label>
+            <input type="date" id="birth-date" required>
+        </div>
+
+        <div class="genderr">
+            <label for="gender">Gender</label>
+            <select id="gender" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+
+        <div class="blood">
+            <label for="blood-type">Blood Type</label>
+            <select id="blood-type" class="blood-type" required>
+                <option value="" disabled selected>Select Blood Type</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="AB">AB</option>
+                <option value="O">O</option>
+            </select>
+        </div>
+
+        <div class="tahun">
+            <label for="age">Age</label>
+            <input type="number" id="age" min="0" required>
+        </div>
+
+        <div class="job">
+            <label for="job">Job</label>
+            <input type="text" id="job" required>
+        </div>
+
+        <div class="telp">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" required>
+        </div>
+
+        <div class="alamat">
+            <label for="address">Address</label>
+            <textarea id="address" required></textarea>
+        </div>
+
+        <div class="data_area">
+            <h3>Patient's Information for <span id="room-number"></span></h3>
+            <ul id="patient-list"></ul>
+
+            <div class="info">
+                <div class="info-row">
+                    <div class="label">Name</div>
+                    <div class="separator">:</div>
+                    <div class="value" id="auto_name"></div>
+                </div>
+
+                <div class="info-row">
+                    <div class="label">Birth Place</div>
+                    <div class="separator">:</div>
+                    <div class="value" id="auto_place"></div>
+                </div>
+
+                <div class="info-row">
+                    <div class="label">Birth Date</div>
+                    <div class="separator">:</div>
+                    <div class="value" id="auto_date"></div>
+                </div>
+
+                <div class="info-row">
+                    <div class="label">Blood Type</div>
+                    <div class="separator">:</div>
+                    <div class="value" id="auto_blood"></div>
+                </div>
+
+                <div class="info-row">
+                    <div class="label">Gender</div>
+                    <div class="separator">:</div>
+                    <div class="value" id="auto_gender"></div>
+                </div>
+
+                <div class="info-row">
+                    <div class="label">Age</div>
+                    <div class="separator">:</div>
+                    <div class="value" id="auto_age"></div>
+                </div>
+
+                <div class="info-row">
+                    <div class="label">Phone Number</div>
+                    <div class="separator">:</div>
+                    <div class="value" id="auto_phone"></div>
+                </div>
+
+                <div class="info-row">
+                    <div class="label">Address</div>
+                    <div class="separator">:</div>
+                    <div class="value" id="auto_address"></div>
+                </div>
             </div>
         </div>
 
-        <!-- SPO2 & History Chart -->
-        <div class="spo2">
-            <p class="spo2-text">Blood Oxygen</p>
-            <p class="spo2-aja">(SpO<sub>2</sub>)</p>
-            <p class="spo2-value"></p>
-            <p class="waktu">Last Data :</p>
-            <p class="waktu-value"></p>
-            <p class="wib">WIB</p>
+        <div class="button-group" id="button-group">
+            <button id="btn-input">Input</button>
+            <button id="btn-update">Update</button>
+            <button id="btn-delete">Delete</button>
         </div>
 
-        <div class="history_chart">
-            <canvas id="historyChart"></canvas>
-        </div>
     </div>
-
-    <!-- Alarm Section & Donut Chart -->
-    <div class="alarm-panel">
-        <div class="alarm">
-            <p>RECENT ALARM</p>
-        </div>
-
-        <div class="donut-container">
-            <div class="donut" id="donutChart">
-                <div class="donut-hole"></div>
-                <img src="gambar/alarm.png" alt="alarm" class="alarm-img" />
-            </div>
-        </div>
-
-        <div class="semuabox">
-            <div class="box">
-                <div class="indikator"></div>
-                <p><span>Title</span> Deskripsi Tambahan</p>
-            </div>
-            <div class="box">
-                <div class="indikator"></div>
-                <p><span>Title</span> Deskripsi Tambahan</p>
-            </div>
-            <div class="box">
-                <div class="indikator"></div>
-                <p><span>Title</span> Deskripsi Tambahan</p>
-            </div>
-            <div class="box">
-                <div class="indikator"></div>
-                <p><span>Title</span> Deskripsi Tambahan</p>
-            </div>
-            <div class="box">
-                <div class="indikator"></div>
-                <p><span>Title</span> Deskripsi Tambahan</p>
-            </div>
-            <div class="box">
-                <div class="indikator"></div>
-                <p><span>Title</span> Deskripsi Tambahan</p>
-            </div>
-            <div class="box">
-                <div class="indikator"></div>
-                <p><span>Title</span> Deskripsi Tambahan</p>
-            </div>
-        </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="abc.js"></script>
-    <script src="alarm.js"></script>
+    </div>
+    <script src="input.js"></script>
 </body>
 
 </html>
